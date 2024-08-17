@@ -1,0 +1,34 @@
+Video Transcoding(Processing)
+-> converting video file one format to another format its know as the Transcoding
+-> we can convert the quality, resolution, bit rate, etc
+-> Conversation is need because we are support all the devices, also in the different resolution
+
+## Key Concepts
+Codec: method for encoding or decoding the audio or video
+ex-> H.264, H.265
+
+Container: file format that holder .mp4, .avi
+
+Bitrate: amount of data process per second (kbps, mbps)
+
+Resolution: 1920x1080 full Hd
+
+## why transcoding?
+1) Compatibility
+2) Optimization
+3) Adaptive Streaming (1080p, 720p, 360p)
+
+## ffmpeg
+-> ffmpeg is library that help to process the data
+=> https://www.ffmpeg.org/
+=> choco install ffmpeg
+use this command to download the ffmpeg
+
+=> see the demo D:\ffmpeg
+
+## HLS -> HTTP Live Streaming Protocol
+-> HTTP Live Streaming (HLS) is a protocol developed by Apple for streaming media over HTTP. It is widely used for delivering video and audio content over the internet
+
+- **Segmentation:** The video is divided into small segments, typically 2-10 second each.
+
+- **Master Playlist (.m3u8):** Each quality level has its own playlist, listing the URLs of the segments at that quality.
