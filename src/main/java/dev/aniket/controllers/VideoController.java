@@ -24,7 +24,7 @@ import java.nio.file.Paths;
 import java.util.List;
 
 //video upload
-
+//http://localhost:5173/
 @CrossOrigin(origins = "http://localhost:5173/")
 @RestController
 @RequestMapping("/api/v1/videos")
@@ -234,15 +234,22 @@ public class VideoController {
     }
 
     //segments
-
+    int count = 0;
     @GetMapping("{videoId}/{segment}.ts")
     public ResponseEntity<?> serverSegmentFile(
             @PathVariable Integer videoId,
             @PathVariable String segment
     )
     {
+        log.info("serve {} segment file for videID: {}", ++count, videoId);
         return videoService.executeSegmentFile(videoId, segment);
     }
+    //NOTE
+    /*
+    * The master.m3u8 file provides the playlist for the video segments.
+    * The browser or video player makes requests for each segment listed in the master.m3u8.
+    * The backend serves these segments with appropriate content types to facilitate smooth streaming.
+    */
 
 }
 
